@@ -1,3 +1,9 @@
+librdkafka (0.8.5-2~precise0+exo2) precise; urgency=medium
+
+  * Rebuild to replace older package.
+
+ -- Vincent Bernat <bernat@debian.org>  Thu, 19 Nov 2015 11:51:07 +0100
+
 librdkafka (0.8.5-2~precise0+exo1) precise; urgency=medium
 
   * Backport for Precise.
