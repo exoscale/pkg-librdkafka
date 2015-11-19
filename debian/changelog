@@ -1,3 +1,9 @@
+librdkafka (0.8.5-2~precise0+exo1) precise; urgency=medium
+
+  * Backport for Precise.
+
+ -- Vincent Bernat <bernat@debian.org>  Thu, 19 Nov 2015 11:46:00 +0100
+
 librdkafka (0.8.5-2) unstable; urgency=medium
 
   * Install rdkafka.pc in the right, multiarch location. (Closes: #766759)
