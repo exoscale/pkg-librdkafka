@@ -1,6 +1,7 @@
 librdkafka (0.9.1~pre1-0~precise0+exo1) precise; urgency=medium
 
   * Backport to Precise.
+    - Restore -dbg package.
 
  -- Vincent Bernat <bernat@debian.org>  Mon, 18 Apr 2016 10:20:55 +0200
 
