@@ -1,4 +1,4 @@
-librdkafka (0.9.1-1) unstable; urgency=medium
+librdkafka (0.9.1~pre1-0) UNRELEASED; urgency=medium
 
   * New upstream release (Closes: #816047).
     - Remove 0001-mklove-update-add-disable-silent-rules patch (not needed)
