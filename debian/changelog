@@ -1,3 +1,42 @@
+librdkafka (0.9.5-2) unstable; urgency=medium
+
+  * Upload to unstable.
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Wed, 21 Jun 2017 12:10:57 +0300
+
+librdkafka (0.9.5-1) experimental; urgency=medium
+
+  * New upstream release.
+  * Add a README.source note about shipping lz4 in the upstream tarball.
+    lz4 is not used in Debian builds.
+  * Add copyright for the lz4 library.
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Tue, 18 Apr 2017 12:30:07 +0300
+
+librdkafka (0.9.4-1) experimental; urgency=medium
+
+  [ Faidon Liambotis ]
+  * Update debian/watch with upstream's new convention.
+
+  [ Christos Trochalakis ]
+  * New upstream release.
+  * Update librdkafka1.symbols for 0.9.4.
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Mon, 27 Feb 2017 11:42:12 +0200
+
+librdkafka (0.9.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * Add Build-Depends to liblz4-dev to enable LZ4 compression.
+  * Add copyright for xxhash.[hc] and regexp.[hc].
+  * Update librdkafka1.symbols for 0.9.2 and 0.9.3.
+  * Use hardening build flags.
+  * Add myself to Uploaders.
+  * Switch to debhelper 10.
+  * Move packaging to alioth, under the pkg-kafka team.
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Tue, 24 Jan 2017 17:33:40 +0200
+
 librdkafka (0.9.1-1) unstable; urgency=medium
 
   * New upstream release (Closes: #816047).
