@@ -1,3 +1,10 @@
+librdkafka (0.9.5-2~bpo8+0+exo1) jessie-backports; urgency=medium
+
+  * Backport to Jessie.
+     - Use debhelper 9.
+
+ -- Vincent Bernat <bernat@debian.org>  Wed, 12 Jul 2017 11:12:34 +0200
+
 librdkafka (0.9.5-2) unstable; urgency=medium
 
   * Upload to unstable.
