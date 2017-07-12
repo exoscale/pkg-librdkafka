@@ -1,6 +1,7 @@
 librdkafka (0.9.5-2~precise0+exo1) precise; urgency=medium
 
   * Backport to Precise.
+     - Use debhelper 9.
   * Remove SNI patch (included upstream).
 
  -- Vincent Bernat <bernat@debian.org>  Wed, 12 Jul 2017 10:53:19 +0200
