@@ -2,17 +2,22 @@ Source: librdkafka
 Priority: optional
 Maintainer: Faidon Liambotis <paravoid@debian.org>
 Uploaders: Christos Trochalakis <ctrochalakis@debian.org>
-Build-Depends: debhelper (>= 10), zlib1g-dev, libssl-dev, libsasl2-dev, liblz4-dev, python
-Standards-Version: 3.9.8
+Build-Depends: debhelper (>= 10),
+               liblz4-dev (>= 0.0~r123),
+               libsasl2-dev,
+               libssl-dev,
+               python,
+               zlib1g-dev
+Standards-Version: 4.1.1
 Section: libs
 Homepage: https://github.com/edenhill/librdkafka
-Vcs-Git: https://anonscm.debian.org/cgit/pkg-kafka/librdkafka.git -b debian
+Vcs-Git: https://anonscm.debian.org/cgit/pkg-kafka/librdkafka.git -b debian/sid
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-kafka/librdkafka.git
 
 Package: librdkafka1
 Architecture: any
 Multi-Arch: same
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: library implementing the Apache Kafka protocol
  librdkafka is a C library implementation of the Apache Kafka protocol,
  containing both Producer and Consumer support. It was designed with message
@@ -27,7 +32,7 @@ Description: library implementing the Apache Kafka protocol
 Package: librdkafka++1
 Architecture: any
 Multi-Arch: same
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: library implementing the Apache Kafka protocol (C++ bindings)
  librdkafka is a C library implementation of the Apache Kafka protocol,
  containing both Producer and Consumer support. It was designed with message
@@ -43,7 +48,9 @@ Package: librdkafka-dev
 Section: libdevel
 Architecture: any
 Multi-Arch: same
-Depends: librdkafka1 (= ${binary:Version}), librdkafka++1 (= ${binary:Version}), ${misc:Depends}
+Depends: librdkafka++1 (= ${binary:Version}),
+         librdkafka1 (= ${binary:Version}),
+         ${misc:Depends}
 Description: library implementing the Apache Kafka protocol (development headers)
  librdkafka is a C library implementation of the Apache Kafka protocol,
  containing both Producer and Consumer support. It was designed with message
