@@ -1,3 +1,27 @@
+librdkafka (0.11.3-0) UNRELEASED; urgency=medium
+
+  * New upstream release
+
+ -- Vincent Bernat <bernat@debian.org>  Mon, 11 Dec 2017 14:03:04 +0100
+
+librdkafka (0.11.1-1) unstable; urgency=medium
+
+  * New upstream release
+  * Bump Standards-Version, no changes needed
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Wed, 18 Oct 2017 12:44:25 +0300
+
+librdkafka (0.11.0-1) unstable; urgency=medium
+
+  * New upstream release
+  * Update librdkafka1.symbols for 0.11.0
+  * Add NEWS entry about librdkafka's configuration changes
+  * Explicitly depend on libz4-dev with framing support (lz4frame.h)
+  * Bump Standards-Version to 4.0.0, no changes needed
+  * Setup gbp to use git as an upstream source
+
+ -- Christos Trochalakis <ctrochalakis@debian.org>  Thu, 20 Jul 2017 15:52:06 +0300
+
 librdkafka (0.9.5-2~bpo8+0+exo1) jessie-backports; urgency=medium
 
   * Backport to Jessie.
