@@ -1,3 +1,9 @@
+librdkafka (0.11.3-0~bpo8+0+exo1) jessie-backports; urgency=medium
+
+  * Backport to Jessie.
+
+ -- Vincent Bernat <bernat@debian.org>  Wed, 13 Dec 2017 11:30:58 +0100
+
 librdkafka (0.11.3-0) UNRELEASED; urgency=medium
 
   * New upstream release
