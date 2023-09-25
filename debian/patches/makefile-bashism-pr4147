@@ -1,0 +1,41 @@
+From dbe750a46116b6d2d1940fc701867dd0432210d0 Mon Sep 17 00:00:00 2001
+From: Faidon Liambotis <paravoid@debian.org>
+Date: Thu, 12 Jan 2023 03:50:36 +0200
+Subject: [PATCH] Remove small bashism from Makefile
+
+The LICENSES.txt target makes a shell for loop, in which it tries to
+evaluate the wildcard "LICENSE.*[^~]".
+
+[^] is a bashism, and fails when /bin/sh is not bash (i.e. every
+Debian-based system by default):
+
+$ /bin/bash -c "ls LICENSE.*[^~]"
+LICENSE.cjson	LICENSE.fnv1a	      LICENSE.lz4      LICENSE.pycrc  LICENSE.regexp  LICENSE.tinycthread
+LICENSE.crc32c	LICENSE.hdrhistogram  LICENSE.murmur2  LICENSE.queue  LICENSE.snappy  LICENSE.wingetopt
+
+$ /bin/sh -c "ls LICENSE.*[^~]"
+ls: cannot access 'LICENSE.*[^~]': No such file or directory
+
+The equivalent POSIX way to do this is to use [!].
+
+Tested with bash, dash and posh.
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 2d931f09..482d9e68 100755
+--- a/Makefile
++++ b/Makefile
+@@ -79,7 +79,7 @@ rpm: distclean
+ 	$(MAKE) -C packaging/rpm
+ 
+ LICENSES.txt: .PHONY
+-	@(for i in LICENSE LICENSE.*[^~] ; do (echo "$$i" ; echo "--------------------------------------------------------------" ; cat $$i ; echo "" ; echo "") ; done) > $@.tmp
++	@(for i in LICENSE LICENSE.*[!~] ; do (echo "$$i" ; echo "--------------------------------------------------------------" ; cat $$i ; echo "" ; echo "") ; done) > $@.tmp
+ 	@cmp $@ $@.tmp || mv -f $@.tmp $@ ; rm -f $@.tmp
+ 
+ 
+-- 
+2.39.0
+

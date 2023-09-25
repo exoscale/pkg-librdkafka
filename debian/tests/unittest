@@ -1,0 +1,23 @@
+#!/bin/sh
+
+set -e
+
+cat >$AUTOPKGTEST_TMP/testprog.c <<EOF
+#include <stdio.h>
+#include <librdkafka/rdkafka.h>
+
+int main(int argc, char **argv)
+{
+    int fails = rd_kafka_unittest();
+    if (fails) {
+        printf("%d unit-test(s) failed\n", fails);
+        return 1;
+    }
+    return 0;
+}
+EOF
+
+cc -o $AUTOPKGTEST_TMP/testprog $AUTOPKGTEST_TMP/testprog.c \
+   $(pkg-config --cflags --libs rdkafka)
+
+$AUTOPKGTEST_TMP/testprog

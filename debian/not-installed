@@ -1,0 +1,10 @@
+# this is the self-contained library, identical to librdkafka.a in our build
+# no way currently to set MKL_NO_SELFCONTAINED_STATIC_LIB through configure
+usr/lib/*/librdkafka-static.a
+usr/lib/*/pkgconfig/rdkafka-static.pc
+usr/lib/*/pkgconfig/rdkafka++-static.pc
+# installed by dh_installchangelogs anyway
+usr/share/doc/librdkafka/CHANGELOG.md
+# covered by debian/copyright
+usr/share/doc/librdkafka/LICENSE
+usr/share/doc/librdkafka/LICENSES.txt

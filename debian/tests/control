@@ -1,0 +1,7 @@
+Tests: examples
+Depends: librdkafka-dev, build-essential, pkg-config
+Restrictions: allow-stderr
+
+Tests: unittest
+Depends: librdkafka-dev, build-essential, pkg-config
+Restrictions: allow-stderr

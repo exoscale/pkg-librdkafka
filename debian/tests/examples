@@ -1,0 +1,40 @@
+#!/bin/sh
+
+EXAMPLES="rdkafka_example.c rdkafka_example.cpp producer.c consumer.c rdkafka_complex_consumer_example.cpp"
+WORKDIR=$AUTOPKGTEST_TMP/examples
+
+set -e
+
+# create our working directory, separate from anythin else tested
+mkdir $WORKDIR || true
+# copy some examples from the source tree
+for example in $EXAMPLES; do
+	cp examples/$example $WORKDIR/
+done
+
+cd $WORKDIR
+
+# switch the code to use the system copy of the header
+sed -i 's;#include "rdkafka.h";#include <librdkafka/rdkafka.h>;' *.c
+sed -i 's;#include "rdkafkacpp.h";#include <librdkafka/rdkafkacpp.h>;' *.cpp
+
+echo "Info pkg-config (rdkafka): $(pkg-config --cflags --libs rdkafka)"
+echo "Info pkg-config (rdkafka++): $(pkg-config --cflags --libs rdkafka++)"
+
+# build C programs
+for src in *.c; do
+	echo "Build $src"
+	cc $src -o $src.out $(pkg-config --cflags --libs rdkafka)
+done
+# build C++ programs
+for src in *.cpp; do
+	echo "Build $src"
+	c++ $src -o $src.out $(pkg-config --cflags --libs rdkafka++)
+done
+# run them, check for "Usage" string in stderr
+for out in *.out; do
+	echo "Run $out"
+	./$out 2>&1 | grep -q Usage
+done
+
+echo "All OK"
