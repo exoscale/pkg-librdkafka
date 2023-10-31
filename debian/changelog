@@ -1,3 +1,9 @@
+librdkafka (2.2.0-2~focal+exo1) UNRELEASED; urgency=medium
+
+  * Rebuild for Focal avoiding collisions. No changes. 
+
+ -- Alessandro Ratti <alessandro@exoscale.com>  Tue, 31 Oct 2023 14:41:28 +0000
+
 librdkafka (2.2.0-1) unstable; urgency=medium
 
   * New upstream release.
