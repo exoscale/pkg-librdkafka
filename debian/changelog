@@ -1,3 +1,9 @@
+librdkafka (2.2.0-2~jammy+exo1) unstable; urgency=medium
+
+  * Rebuild for Jammy avoiding collisions. No changes. 
+
+ -- Xavier Gattuso <xavier.gattuso@exoscale.ch>  Tue, 31 Oct 2023 14:46:00 +0000
+
 librdkafka (2.2.0-1) unstable; urgency=medium
 
   * New upstream release.
